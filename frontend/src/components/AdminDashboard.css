@@ -1,0 +1,86 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.admin-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-logout-admin {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-logout-admin:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.locations-grid {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.location-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+}
+
+.location-card h2 {
+  color: #667eea;
+  margin: 0 0 20px 0;
+  font-size: 24px;
+}
+
+.location-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.location-link {
+  padding: 12px 15px;
+  background: #f8f9fa;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+  border-left: 4px solid #667eea;
+}
+
+.location-link:hover {
+  background: #667eea;
+  color: white;
+  transform: translateX(5px);
+}
