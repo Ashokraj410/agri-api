@@ -7,10 +7,6 @@ const PendingPayments = () => {
   const { location } = useParams();
   const [payments, setPayments] = useState([]);
 
-  useEffect(() => {
-    fetchPayments();
-  }, [location]);
-
   const fetchPayments = async () => {
     try {
       const response = await axiosInstance.get(`/pending-payments/${location}`);
@@ -19,6 +15,11 @@ const PendingPayments = () => {
       console.error('Error fetching payments:', error);
     }
   };
+
+  useEffect(() => {
+    fetchPayments();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const markAsPaid = async (paymentId) => {
     try {

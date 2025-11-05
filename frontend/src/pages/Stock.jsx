@@ -15,10 +15,6 @@ const Stock = () => {
     notes: ''
   });
 
-  useEffect(() => {
-    fetchStocks();
-  }, [location]);
-
   const fetchStocks = async () => {
     try {
       const response = await axiosInstance.get(`/stock/${location}`);
@@ -27,6 +23,11 @@ const Stock = () => {
       console.error('Error fetching stocks:', error);
     }
   };
+
+  useEffect(() => {
+    fetchStocks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

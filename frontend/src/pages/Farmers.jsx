@@ -7,10 +7,6 @@ const Farmers = () => {
   const { location } = useParams();
   const [farmers, setFarmers] = useState([]);
 
-  useEffect(() => {
-    fetchFarmers();
-  }, [location]);
-
   const fetchFarmers = async () => {
     try {
       const response = await axiosInstance.get(`/farmers/${location}`);
@@ -19,6 +15,11 @@ const Farmers = () => {
       console.error('Error fetching farmers:', error);
     }
   };
+
+  useEffect(() => {
+    fetchFarmers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   return (
     <div className="page-container">

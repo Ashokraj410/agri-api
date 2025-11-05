@@ -15,10 +15,6 @@ const Expenses = () => {
     other_expenses: [{ description: '', amount: '' }]
   });
 
-  useEffect(() => {
-    fetchExpenses();
-  }, [location]);
-
   const fetchExpenses = async () => {
     try {
       const response = await axiosInstance.get(`/expenses/${location}`);
@@ -27,6 +23,11 @@ const Expenses = () => {
       console.error('Error fetching expenses:', error);
     }
   };
+
+  useEffect(() => {
+    fetchExpenses();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const addCompanyPayment = () => {
     setFormData({

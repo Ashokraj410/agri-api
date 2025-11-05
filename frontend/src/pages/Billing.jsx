@@ -17,10 +17,6 @@ const Billing = () => {
     pending_amount: 0
   });
 
-  useEffect(() => {
-    fetchBills();
-  }, [location]);
-
   const fetchBills = async () => {
     try {
       const response = await axiosInstance.get(`/billing/${location}`);
@@ -29,6 +25,11 @@ const Billing = () => {
       console.error('Error fetching bills:', error);
     }
   };
+
+  useEffect(() => {
+    fetchBills();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
 
   const handleItemChange = (index, field, value) => {
     const newItems = [...formData.items];
