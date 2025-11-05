@@ -4,11 +4,7 @@ const getApiUrl = () => {
   if (import.meta.env.VITE_API_URL) {
     return import.meta.env.VITE_API_URL;
   }
-  if (typeof window !== 'undefined' && window.location.hostname.includes('replit.dev')) {
-    const currentDomain = window.location.hostname;
-    return `https://${currentDomain}:5001/api`;
-  }
-  return 'http://localhost:5001/api';
+  return 'http://localhost:8000/api';
 };
 
 const API_URL = getApiUrl();

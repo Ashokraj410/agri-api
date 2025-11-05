@@ -1,9 +1,10 @@
-modules = ["python-3.11", "nodejs-20"]
+modules = ["nodejs-20", "python-3.11", "web"]
 [agent]
 expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["openssl", "postgresql"]
 
 [workflows]
 runButton = "Project"
@@ -27,7 +28,8 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python backend/app.py"
+args = "cd backend && python app.py"
+waitForPort = 8000
 
 [workflows.workflow.metadata]
 outputType = "console"
@@ -49,9 +51,17 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 5001
+localPort = 8000
+externalPort = 8000
+
+[[ports]]
+localPort = 40057
 externalPort = 3000
 
 [[ports]]
 localPort = 45723
 externalPort = 3001
+
+[deployment]
+deploymentTarget = "autoscale"
+run = ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
