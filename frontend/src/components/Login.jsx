@@ -39,7 +39,7 @@ const Login = () => {
       <div className="login-card">
         <h1>Agri Clinic Management</h1>
         <h2>Login</h2>
-        {error && <div className="error-message">{error}</div>}
+        
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Username</label>
@@ -62,6 +62,9 @@ const Login = () => {
             />
           </div>
           <button type="submit" className="btn-login">Login</button>
+
+          
+          {error && <div className="error-message">{error}</div>}
         </form>
       </div>
     </div>

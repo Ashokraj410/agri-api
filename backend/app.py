@@ -4,6 +4,9 @@ import jwt
 import os
 from datetime import datetime, timedelta
 from functools import wraps
+from dotenv import load_dotenv  # <-- ADD THIS
+
+load_dotenv()  # <-- ADD THIS to load .env values
 
 app = Flask(__name__)
 CORS(app)
